@@ -214,7 +214,7 @@ parseRecurId dts (ContentLine p "RECURRENCE-ID" o bs) = do
                     (UTCDateTime {}, FloatingDateTime {}) -> err dts recurid
                     (UTCDateTime {}, ZonedDateTime {})    -> err dts recurid
                     (FloatingDateTime {}, UTCDateTime {}) -> err dts recurid
-                    (ZonedDateTime {}, UTCDateTime {})    -> err dts recurid
+--                    (ZonedDateTime {}, UTCDateTime {})    -> err dts recurid
                     _ -> return recurid
          _ -> err dts recurid
   where err d r = throwError $ "parseRecurId: DTSTART local time mismatch: " ++
